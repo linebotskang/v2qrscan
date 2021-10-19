@@ -9,18 +9,7 @@
   <button onclick="scanCodeV2()">QR Code Reader</button>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
-    async function scanCodeV2() {
-      
-      var context = liff.getContext();
-      console.log(context);
-
-
-      liff.getProfile()
-          .then(function(profile) {
-            console.log(profile);
-          });    
-      
-      
+    async function scanCodeV2() {      
       try {
         const result = await liff.scanCodeV2();
         document.querySelector('#result').innerHTML = result.value;
@@ -41,7 +30,9 @@
       liff.getProfile()
           .then(function(profile) {
             console.log(profile);
-          });        
+          });
+      
+      location.href = "https://www.apple.com?user=" + context.userId;
             
     }
     main();
